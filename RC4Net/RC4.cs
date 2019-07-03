@@ -25,14 +25,14 @@ namespace DD.Cryptography
             /// <remarks>The block size is equal to the size of the S-Box table.</remarks>
             internal Transform(byte[] rgbKey)
             {
-                S = new int[CharsInByte];
+                S = new byte[CharsInByte];
                 KSA(rgbKey);
             }
 
             /// <summary>
             /// An array used as a replacement table, called an S-box.
             /// </summary>
-            private readonly int[] S;
+            private readonly byte[] S;
 
             /// <summary>
             /// The first index-pointers.
@@ -47,7 +47,7 @@ namespace DD.Cryptography
             /// <summary>
             /// Number of characters per byte.
             /// </summary>
-            private const int CharsInByte = 256;
+            private const int CharsInByte = byte.MaxValue + 1;
 
             /// <summary>
             /// Key-Scheduling Algorithm.
@@ -60,11 +60,10 @@ namespace DD.Cryptography
 
                 for (int i = 0; i < CharsInByte; i++)
                 {
-                    S[i] = i;
+                    S[i] = (byte)i;
                 }
 
-                int j = 0;
-                for (int i = 0; i < CharsInByte; i++)
+                for (int i = 0, j = 0; i < CharsInByte; i++)
                 {
                     j = (j + S[i] + key[i % key.Length]) % CharsInByte;
                     S.Swap(i, j);
@@ -75,13 +74,15 @@ namespace DD.Cryptography
             /// Pseudo-Random Generation Algorithm.
             /// </summary>
             /// <returns>Pseudo-Random Word (The keystream value K)</returns>
-            private int PRGA()
+            private byte PRGA()
             {
-                i = (i + 1) % CharsInByte;
-                j = (j + S[i]) % CharsInByte;
-                S.Swap(i, j);
-                var K = S[(S[i] + S[j]) % CharsInByte];
-                return K;
+                unchecked
+                {
+                    i = (i + 1) % CharsInByte;
+                    j = (j + S[i]) % CharsInByte;
+                    S.Swap(i, j);
+                    return S[(S[i] + S[j]) % CharsInByte];
+                }
             }
 
             /// <summary>
@@ -90,9 +91,12 @@ namespace DD.Cryptography
             /// <param name="cipher">Array of bytes of ciphertext or plaintext.</param>
             private void PRGA(byte[] cipher)
             {
-                for (int i = 0; i < cipher.Length; i++)
+                unchecked
                 {
-                    cipher[i] = (byte)(cipher[i] ^ PRGA());
+                    for (int k = 0; k < cipher.Length; k++)
+                    {
+                        cipher[k] = (byte)(cipher[k] ^ PRGA());
+                    }
                 }
             }
 
