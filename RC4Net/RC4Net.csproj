@@ -12,6 +12,7 @@
     <PackageLicenseExpression>MIT License</PackageLicenseExpression>
     <PackageTags>RC4, Cryptography, SymmetricAlgorithm, ICryptoTransform, .Net Standart, netstandard</PackageTags>
     <NeutralLanguage></NeutralLanguage>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>
