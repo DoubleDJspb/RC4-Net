@@ -6,7 +6,7 @@ namespace DD.Cryptography
     /// <summary>
     /// Represents the base class from which all implementations of the RC4 algorithm must derive.
     /// </summary>
-    /// <see cref="https://docs.microsoft.com/en-gb/dotnet/api/system.security.cryptography.symmetricalgorithm?view=netframework-4.7.2"/>
+    /// <see cref="https://docs.microsoft.com/en-gb/dotnet/api/system.security.cryptography.symmetricalgorithm?view=netstandard-2.0"/>
     /// <seealso cref="https://en.wikipedia.org/wiki/RC4"/>
     public abstract class RC4 : SymmetricAlgorithm
     {
@@ -15,7 +15,7 @@ namespace DD.Cryptography
         /// <summary>
         /// Performs a cryptographic transformation of data using the RC4 algorithm. This class cannot be inherited.
         /// </summary>
-        /// <see cref="https://docs.microsoft.com/en-gb/dotnet/api/system.security.cryptography.icryptotransform?view=netframework-4.7.2"/>
+        /// <see cref="https://docs.microsoft.com/en-gb/dotnet/api/system.security.cryptography.icryptotransform?view=netstandard-2.0"/>
         private sealed class Transform : ICryptoTransform
         {
             /// <summary>

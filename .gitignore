@@ -3,3 +3,13 @@
 ################################################################################
 
 /RC4Net/obj/Debug/netstandard2.0/RC4Net.csproj.CoreCompileInputs.cache
+/RC4Net/obj/Debug/netstandard2.0/RC4Net.assets.cache
+/RC4Net/obj/Debug/netstandard2.0/RC4Net.AssemblyInfoInputs.cache
+/RC4Net/obj
+/RC4 Demo/obj/Debug
+/packages
+/.vs
+/RC4Net/bin/Debug/netstandard2.0
+/RC4 Test/obj/Debug
+/RC4 Test/bin/Debug
+/RC4 Demo/bin/Debug
