@@ -6,4 +6,4 @@ Sorry for my English :-)
 ## There are 3 projects in the solution:
 * **RC4-Net** - RC4 library itself (.Net Standart 2.0)
 * **RC4-Demo** - application demonstration (.Net Framework 4.7.2)
-* **RC4-Test** - a few of simple tests (.Net Framework 4.7.2)
+* **RC4-Test** - a couple of simple tests (.Net Framework 4.7.2)
