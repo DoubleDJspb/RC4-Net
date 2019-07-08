@@ -47,11 +47,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RC4Net\RC4Net.csproj">
-      <Project>{4f5ccf7c-da90-4ac5-8bf7-5d7a161b3721}</Project>
-      <Name>RC4Net</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
